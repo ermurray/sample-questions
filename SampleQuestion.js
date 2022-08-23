@@ -1,17 +1,12 @@
 
-
-
 function getAdmins() {
   const admins = []
     const users = fetch("https://jsonplaceholder.typicode.com/users");
-
-    users.forEach( user => {
+    users.forEach( user => { // Type Error: forEach is not a function
       if( user.role === 'admin') {
         admins.push(user)
       }
   })
-
-
   return admins
 }
 
