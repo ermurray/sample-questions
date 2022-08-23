@@ -1,15 +1,18 @@
 
 
 
- async function getAdmins() {
-  let admin = []
-  try {
-    const users = await fetch("https://jsonplaceholder.typicode.com/users");
-    admin = users.filter( (user) => user.role === 'admin' )
-  } catch (err) {
-    console.log(err)
-  }
-  return admin
+function getAdmins() {
+  const admins = []
+    const users = fetch("https://jsonplaceholder.typicode.com/users");
+
+    users.forEach( user => {
+      if( user.role === 'admin') {
+        admins.push(user)
+      }
+  })
+
+
+  return admins
 }
 
 
